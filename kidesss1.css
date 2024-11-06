@@ -1,0 +1,720 @@
+/* Basic Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+   
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(	#FFC0CB,	#B0E0E6);
+    padding: 20px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: "Matemasie", sans-serif;
+    background: linear-gradient(90deg,	#FF69B4,	#191970, #800080,#4B0082,	#C71585); /* Rainbow colors */
+    -webkit-background-clip: text; /* Clip background to the text */
+    background-clip: text; /* For non-webkit browsers */
+    color: transparent; /* Make the text color transparent */
+}
+
+
+/* Initially hide menu and close buttons */
+nav .menu, nav .close-btn {
+    display: none;
+    cursor: pointer;
+}
+
+nav .menu i, nav .close-btn i {
+    font-size: 24px;
+    color: maroon;
+}
+
+/* Navigation Links */
+ul.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+ul.nav-links li {
+    margin: 0 15px;
+}
+
+ul.nav-links li a {
+    text-decoration: none;
+    color: 		#8B0000;
+    font-size: 20px;
+    font-family: "Pacifico", cursive;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+ul.nav-links li a:hover {
+    background-color:lightslategray;
+    transform: scale(1.1);
+}
+
+/* Responsive Menu for Mobile Screens */
+@media screen and (max-width: 768px) {
+    /* Show the hamburger menu button on small screens */
+    nav .menu {
+        display: block;
+    }
+
+    ul.nav-links {
+        position: absolute;
+        top: 0;
+        right: -200px;
+        width: 200px;
+        height: 100vh;
+        background: linear-gradient(	#FFC0CB,	#B0E0E6);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s ease-in-out;
+    }
+
+    ul.nav-links li {
+        margin: 20px 0;
+    }
+
+    /* Show navigation links when active */
+    ul.nav-links.active {
+        right: 0;
+    }
+
+    /* Show close button when the nav is open */
+    nav .close-btn.active {
+        display: block;
+    }
+
+    /* Hide the menu icon when the nav is active */
+    nav .menu.active {
+        display: none;
+    }
+
+    nav .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        display: none; /* Hidden by default */
+    }
+}
+
+/* Hide menu and close buttons on larger screens */
+@media screen and (min-width: 769px) {
+    nav .menu, nav .close-btn {
+        display: none !important;
+    }
+}
+
+/* Animations */
+ul.nav-links li a {
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+ul.nav-links li a:hover:before {
+    left: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+ul.nav-links {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Basic Styling for the Header Section */
+
+
+
+.offers-container .accessory-item img{
+    width: 300px;
+    height: 350px;
+    border: 2px solid black;
+}
+.header-section {
+    position: relative;
+    height: 100vh; /* Full height of the viewport */
+    overflow: hidden; /* Prevents overflow from images */
+}
+
+.header-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the content */
+    color:	orange; /* Text color */
+    text-align: center;
+    z-index: 2; /* Ensures content is above the background */
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+/* Background Animation */
+.header-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('th (2).jpg'), url('https://m.media-amazon.com/images/I/91VjOtdBaBS._AC_SL1500_.jpg'), url('SHOT-8.jpg'), url('https://tse4.mm.bing.net/th?id=OIP.H_hzvziLbQPGrUGDr_qQMAHaHa&pid=Api&P=0&h=180');
+    background-size: cover; /* Cover the entire section */
+    background-position: center;
+    animation: changeBackground 16s infinite; /* Change every 4 seconds (4 images) */
+    z-index: 1; /* Place it below the content */
+}
+
+/* Keyframes for background animation */
+@keyframes changeBackground {
+    0% { background-image: url('il_fullxfull.2962333252_jq23.avif'); }
+    20% { background-image: url('best-organic-baby-clothes-organic-layette-guide-1024x704.jpg'); }
+    30% { background-image: url('SHOT-9 (1).jpg'); }
+    40% { background-image: url('db3d3c75-01a7-4151-8561-70ecb8c251eb.5a84450ec772907331cf7ca1bf7e732a.webp'); }
+    50% { background-image: url('Baby-Clothes.jpg'); }
+}
+
+
+
+.cartoon-icons img {
+    height: 80%;
+    width: 95%;
+    margin-top: 230px;
+   padding-top: 150px;
+}
+/* Optional 3D Effect */
+.header-content h1, .header-content p {
+    perspective: 1000px; /* Perspective for 3D effect */
+}
+
+.header-content h1 {
+    transform: rotateY(15deg); /* 3D rotation for the heading */
+    animation: textAnimation 6s infinite alternate; /* Optional animation for the text */
+}
+
+@keyframes textAnimation {
+    0% { transform: rotateY(15deg) translateZ(0); }
+    100% { transform: rotateY(-15deg) translateZ(20px); }
+}
+
+
+/* Image Slider */
+.image-slider {
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+    position: relative;
+    border-radius: 0; /* No rounded corners for full screen */
+    box-shadow: none; /* Remove shadow for full screen */
+}
+
+.slides {
+    display: flex;
+    width: 300%; /* 100% for each of the 3 images */
+    height: 100%; /* Ensure height matches the parent slider */
+    animation: slide 12s infinite; /* Adjusted duration to make sliding smoother */
+}
+
+.slides img {
+    width: 100%; /* Full width for each image */
+    height: 100vh; /* Full viewport height */
+    object-fit: cover; /* Cover the entire area without distortion */
+}
+
+/* Sliding Animation */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    33.33% { transform: translateX(-100%); } /* Slide to the second image */
+    66.66% { transform: translateX(-200%); } /* Slide to the third image */
+    100% { transform: translateX(0); } /* Slide back to the first image */
+}
+
+
+  
+.baby-accessories {
+    text-align: center;
+    padding: 10px;
+    background: linear-gradient(#FFC0CB, #B0E0E6); /* Soft pastel background */
+}
+
+.offer-heading {
+    font-size: 1.2rem; /* Reduced size for smaller screens */
+    color: white;
+    background: linear-gradient(#FF69B4, #6495ED, #FFC0CB, #B0E0E6);
+    padding-top: 20px;
+    padding-bottom: 35px;
+    animation: pop-up 1s ease-out;
+    transform: perspective(500px) rotateX(30deg); /* 3D effect */
+}
+
+.offers-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap; /* Make items wrap on smaller screens */
+}
+
+.accessory-item {
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.accessory-item:hover {
+    transform: rotateY(15deg) scale(1.05); /* 3D hover effect */
+}
+
+.accessory-item img {
+    width: 150px; /* Adjust image size for mobile */
+    height: auto;
+}
+
+.offer {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #ff4500;
+    width: 100px;
+    height: 40px;
+    padding-top: 20px;
+    margin-top: 20px;
+    padding: 5px;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    animation: bounce 1.5s infinite;
+}
+
+.cartoon-icons .icon {
+    width: 300px; /* Adjusted width for mobile */
+    margin: 80px; /* Reduced margin for mobile */
+    border: 2px solid black;
+    animation: float 3s infinite alternate;
+}
+
+/* Keyframes */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes float {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pop-up {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+    .offer-heading {
+        font-size: 1rem; /* Smaller heading on mobile */
+        padding-top: 15px;
+        padding-bottom: 25px;
+    }
+
+    .accessory-item img {
+        width: 80px; /* Smaller images on mobile */
+    }
+
+    .offer {
+        width: 80px;
+        height: 30px; /* Smaller offer label */
+    }
+
+    .cartoon-icons .icon {
+        width: 200px; /* Reduce cartoon icon size on mobile */
+        margin: 40px;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* Base section styling */
+.special-offers {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(#FFC0CB, #B0E0E6);
+    overflow: hidden;
+}
+
+/* Heading styling */
+.special-offers h2 {
+    font-size: 2.0em;
+    color: purple;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    animation: fadeInDown 1s ease-in-out;
+    font-family: "Matemasie", sans-serif;
+}
+
+/* Image container for responsive layout */
+.images-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 40px;
+   
+}
+
+/* Images styling with hover effect */
+.special-offers img {
+    width: 350px;
+    height: 250px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s, box-shadow 0.4s;
+    border: 2px solid grey;
+}
+
+.special-offers img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+/* Paragraph styling */
+.special-offers p {
+    font-size: 1.2em;
+    color:darkred;
+    margin: 20px 0;
+    font-family: cursive;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Teddy bear container for animated bears */
+.teddy-bears {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+/* Each teddy bear with bounce animation */
+.teddy img {
+    width: 100px;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+/* Bounce keyframes */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Fade-in animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .images-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .teddy-bears {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .special-offers img {
+        width: 220px;
+    }
+
+    .teddy img {
+        width: 160px;
+    }
+}
+
+
+
+
+
+
+
+/* Section Styling */
+.image-slider-section {
+    text-align: center;
+    margin: 0px 0;
+    background: linear-gradient(#FFC0CB, #B0E0E6);
+  }
+  
+  .image-slider-section h2 {
+    font-size: 2.0rem;
+    color: #f97316; /* You can adjust the color */
+    padding-bottom: 20px;
+    text-shadow: 2px 2px #ffbb33;
+    font-family: cursive;
+    animation: textPop 1.5s ease-in-out;
+  }
+  
+  .image-slider-section p {
+    font-size: 1.2rem;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: darkred;
+    animation: fadeIn 2s ease-in-out;
+    font-family: cursive;
+  }
+  
+  /* Slider container */
+  .slider-container {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  /* Slider images */
+  .slider {
+    display: flex;
+    transition: transform 1s ease-in-out;
+  }
+  
+  .slider img {
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: zoomEffect 3s ease infinite;
+  }
+  
+  /* Keyframes for animation */
+  @keyframes zoomEffect {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes textPop {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Slider functionality (optional) */
+  @keyframes slide {
+    0% { transform: translateX(0); }
+    33% { transform: translateX(-100%); }
+    66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+  }
+  
+  .slider {
+    animation: slide 9s infinite;
+  }
+  
+  /* Footer Styling */
+.footer {
+    background: linear-gradient(#FFC0CB, #B0E0E6); /* Light playful background */
+    padding: 50px 0;
+    text-align: center;
+  
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    
+  }
+  
+  /* Reviews Box */
+  .reviews-box {
+    width: 45%;
+    background-color: #fff3e0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border: 2px solid grey;
+  }
+  
+  .reviews-box:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  
+  .reviews-box h2 {
+    color: #f97316;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .review {
+    margin-bottom: 15px;
+  }
+  
+  .review p {
+    font-size: 1.2rem;
+    color: black;
+    font-style: italic;
+  }
+  
+  .review span {
+    font-size: 1rem;
+    color: #666;
+    display: block;
+    margin-top: 5px;
+  }
+
+/* Contact Us Box */
+.contact-box {
+    width: 45%;
+    background-color: #fff3e0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border: 2px solid grey;
+  }
+  
+  .contact-box:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  
+  .contact-box h2 {
+    color: #f97316;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .contact-box p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .contact-box a {
+    color: grey;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .contact-box a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Social Icons */
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .social-icon img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+  }
+  
+  .social-icon img:hover {
+    transform: scale(1.2); /* Zoom on hover */
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .reviews-box, .contact-box {
+      width: 90%;
+    }
+  }
+  
